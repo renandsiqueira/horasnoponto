@@ -11,4 +11,9 @@ class SessionsController < ApplicationController
 
   	render :text => "Welcome, #{current_user.email}."
   end
+
+  def destroy
+    reset_session
+    render :text => "Logout."
+  end
 end
