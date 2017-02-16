@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-	protected
-
-  	def current_user
+  #http://railscasts.com/episodes/250-authentication-from-scratch
+  private
+  	
+    def current_user
     	@current_user ||= User.find_by_id(session[:user_id])
   	end
 
@@ -15,4 +16,8 @@ class ApplicationController < ActionController::Base
     	@current_user = user
     	session[:user_id] = user.id
   	end
+
+    def auth!
+      redirect_to root_url, :notice => "Informe seu login para gerenciar seus produtos" unless signed_in?
+    end
 end
