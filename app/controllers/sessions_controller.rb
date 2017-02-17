@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     	@auth = Authorization.create_from_hash(auth, current_user)
   	end
   	# Log the authorizing user in.
-    set_current_user = @auth.user
+    current_user = @auth.user
 
   	render :text => "Welcome, #{current_user.email}."
   end
