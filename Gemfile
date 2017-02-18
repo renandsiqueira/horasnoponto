@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-# boostrap ~> https://github.com/tmlee/time_difference
+# Time difference ~> https://github.com/tmlee/time_difference
 gem 'time_difference'
 
-# boostrap ~> https://github.com/twbs/bootstrap-rubygem
+# Boostrap ~> https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
-# Auth Facebook
+# Auth facebook
 gem 'omniauth'
 gem 'omniauth-facebook'
 

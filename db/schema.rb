@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215161905) do
+ActiveRecord::Schema.define(version: 20170218012021) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20170215161905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_authorizations_on_user_id"
+  end
+
+  create_table "range_times", force: :cascade do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "difference_hours"
+    t.integer  "difference_seconds"
+    t.datetime "date"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_range_times_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
