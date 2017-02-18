@@ -1,0 +1,1 @@
+json.partial! "range_times/range_time", range_time: @range_time

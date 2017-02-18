@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @range_time.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @range_time.end_time %>
+</p>
+
+<p>
+  <strong>Difference hours:</strong>
+  <%= @range_time.difference_hours %>
+</p>
+
+<p>
+  <strong>Difference seconds:</strong>
+  <%= @range_time.difference_seconds %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @range_time.date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @range_time.user %>
+</p>
+
+<%= link_to 'Edit', edit_range_time_path(@range_time) %> |
+<%= link_to 'Back', range_times_path %>

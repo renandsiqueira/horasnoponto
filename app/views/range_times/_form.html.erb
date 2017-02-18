@@ -1,0 +1,47 @@
+<%= form_for(range_time) do |f| %>
+  <% if range_time.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(range_time.errors.count, "error") %> prohibited this range_time from being saved:</h2>
+
+      <ul>
+      <% range_time.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_time %>
+    <%= f.time_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_time %>
+    <%= f.time_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :difference_hours %>
+    <%= f.number_field :difference_hours %>
+  </div>
+
+  <div class="field">
+    <%= f.label :difference_seconds %>
+    <%= f.number_field :difference_seconds %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.datetime_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

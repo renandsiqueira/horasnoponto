@@ -1,0 +1,1 @@
+json.array! @range_times, partial: 'range_times/range_time', as: :range_time
