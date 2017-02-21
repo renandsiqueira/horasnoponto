@@ -1,13 +1,11 @@
 class ApplicationController < ActionController::Base
   #http://railscasts.com/episodes/250-authentication-from-scratch
-  private
+  protected
   	
-    def current_user=(user)
-      session[:user_id] = user.id 
-      current_user    
-    end
-
     def current_user
+      
+      Rails.logger.debug("Find current_user: #{session[:user_id]}")
+
     	@current_user ||= User.find_by_id(session[:user_id])
   	end
 

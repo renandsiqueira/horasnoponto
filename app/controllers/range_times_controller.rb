@@ -1,20 +1,17 @@
 class RangeTimesController < ApplicationController
+  before_action :auth!, only: [:index, :edit]
+  before_action :current_user, only: [:index]
   before_action :set_range_time, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /range_times
   # GET /range_times.json
   def index
-    @range_times = RangeTime.all
+    @range_times = RangeTime.user(current_user.id)
   end
 
   # GET /range_times/1
   # GET /range_times/1.json
   def show
-  end
-
-  # GET /range_times/new
-  def new
-    @range_time = RangeTime.new
   end
 
   # GET /range_times/1/edit
@@ -24,17 +21,21 @@ class RangeTimesController < ApplicationController
   # POST /range_times
   # POST /range_times.json
   def create
-    @range_time = RangeTime.new(range_time_params)
-
-    respond_to do |format|
-      if @range_time.save
-        format.html { redirect_to @range_time, notice: 'Range time was successfully created.' }
-        format.json { render :show, status: :created, location: @range_time }
-      else
-        format.html { render :new }
-        format.json { render json: @range_time.errors, status: :unprocessable_entity }
-      end
+    r = RangeTime.user(current_user.id).without_end.first
+  
+    if r.nil?
+      r = RangeTime.new
+      r.start_time = Time.now
+      r.user = current_user
+      r.date = DateTime.now
+    else
+      r.end_time = Time.now
+      r.difference_hours = TimeDifference.between(r.start_time, r.end_time).in_hours
+      r.difference_seconds = TimeDifference.between(r.start_time, r.end_time).in_seconds
     end
+    r.save
+
+    redirect_to :controller => 'range_times', :action => 'index'
   end
 
   # PATCH/PUT /range_times/1

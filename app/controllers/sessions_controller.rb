@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     	@auth = Authorization.create_from_hash(auth, current_user)
   	end
   	# Log the authorizing user in.
-    current_user = @auth.user
+    session[:user_id] = @auth.user.id
 
-  	render :text => "Welcome, #{current_user.email}."
+    redirect_to :controller => 'range_times', :action => 'index'
   end
 
   def destroy
