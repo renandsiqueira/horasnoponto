@@ -3,9 +3,6 @@ class ApplicationController < ActionController::Base
   protected
   	
     def current_user
-      
-      Rails.logger.debug("Find current_user: #{session[:user_id]}")
-
     	@current_user ||= User.find_by_id(session[:user_id])
   	end
 

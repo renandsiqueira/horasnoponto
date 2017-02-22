@@ -1,0 +1,9 @@
+<h1>Log Hour</h1>
+
+<% if @range_time.nil? or @range_time.end_time.nil? %>
+	<%= button_to "Start Time", {action: "create",remote: true}, {class: 'btn btn-success'} %>
+<% else %>
+	<%= button_to "End Time", {action: "create",remote: true}, {class: 'btn btn-danger'} %>
+<% end %>
+
+<%= link_to "back", controller: "range_times", action: "index" %>

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   	# Log the authorizing user in.
     session[:user_id] = @auth.user.id
 
-    redirect_to :controller => 'range_times', :action => 'index'
+    redirect_to :controller => 'range_times', :action => 'new'
   end
 
   def destroy

@@ -18,11 +18,16 @@ class RangeTimesController < ApplicationController
   def edit
   end
 
+  # GET /range_times/new
+  def new
+    @range_time = RangeTime.user(current_user.id).order("created_at").last
+  end
+
   # POST /range_times
   # POST /range_times.json
   def create
-    r = RangeTime.user(current_user.id).without_end.first
-  
+    r = RangeTime.user(current_user.id).without_end.order("created_at").last
+ 
     if r.nil?
       r = RangeTime.new
       r.start_time = Time.now
@@ -35,7 +40,7 @@ class RangeTimesController < ApplicationController
     end
     r.save
 
-    redirect_to :controller => 'range_times', :action => 'index'
+    redirect_to :controller => 'range_times', :action => 'new'
   end
 
   # PATCH/PUT /range_times/1

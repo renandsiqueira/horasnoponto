@@ -18,8 +18,14 @@
   <tbody>
     <% @range_times.each do |range_time| %>
       <tr>
-        <td><%= range_time.start_time %></td>
-        <td><%= range_time.end_time %></td>
+        <td><%= range_time.start_time.strftime("%k:%M") %></td>
+        <td>
+            <% if range_time.end_time.nil? %>
+              <%= '-' %>
+            <% else %>
+               <%= range_time.end_time.strftime("%k:%M") %>
+            <% end %>           
+        </td>
         <td><%= range_time.difference_hours %></td>
         <td><%= range_time.difference_seconds %></td>
         <td><%= range_time.date %></td>
@@ -34,4 +40,4 @@
 
 <br>
 
-<%= link_to "New Range Time", controller: "range_times", action: "create" %>
+
