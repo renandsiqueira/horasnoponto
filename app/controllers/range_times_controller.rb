@@ -35,6 +35,9 @@ class RangeTimesController < ApplicationController
       r.date = DateTime.now
     else
       r.end_time = Time.now
+      r.save
+      r = RangeTime.user(current_user.id).order("created_at").last
+      
       r.difference_hours = TimeDifference.between(r.start_time, r.end_time).in_hours
       r.difference_seconds = TimeDifference.between(r.start_time, r.end_time).in_seconds
     end
