@@ -17,7 +17,7 @@
   <tbody>
     <% @range_times.each do |range_time| %>
       <tr>
-        <td><%= range_time.date.strftime("%d/%m/%Y") %></td>
+        <td><%= range_time.start_time.strftime("%d/%m/%Y") %></td>
         <td><%= range_time.start_time.strftime("%k:%M:%S") %></td>
         <td>
           <% if range_time.end_time.nil? %>

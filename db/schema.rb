@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(version: 20170218012021) do
   end
 
   create_table "range_times", force: :cascade do |t|
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.float    "difference_hours"
     t.float    "difference_seconds"
-    t.datetime "date"
     t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
