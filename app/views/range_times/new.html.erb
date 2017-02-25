@@ -1,9 +1,7 @@
-<h1>Log Hour</h1>
+<h3>clock</h3>
 
 <% if (@range_time != nil) && (@range_time.end_time == nil) %>
-	<%= button_to "End Time", {action: "create",remote: true}, {class: 'btn btn-danger'} %>
+	<%= button_to "End Time", {action: "create",remote: true}, {class: 'btn btn-lg btn-block btn-danger'} %>
 <% else %>
-	<%= button_to "Start Time", {action: "create",remote: true}, {class: 'btn btn-success'} %>
+	<%= button_to "Start Time", {action: "create",remote: true}, {class: 'btn btn-lg btn-block btn-success'} %>
 <% end %>
-
-<%= link_to "back", controller: "range_times", action: "index" %>

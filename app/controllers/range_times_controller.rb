@@ -7,6 +7,7 @@ class RangeTimesController < ApplicationController
   # GET /range_times.json
   def index
     @range_times = RangeTime.user(current_user.id)
+    set_sum(@range_times)
   end
 
   # GET /range_times/1
@@ -67,6 +68,18 @@ class RangeTimesController < ApplicationController
   end
 
   private
+    def set_sum(range_times)
+      @sum_hour = 0.0
+      @sum_seconds = 0.0
+
+      range_times.each do |r|
+        if r.difference_hours != nil
+          @sum_hour += r.difference_hours
+          @sum_seconds += r.difference_seconds
+        end
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_range_time
       @range_time = RangeTime.find(params[:id])
