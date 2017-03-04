@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    render :text => "Logout."
+    
+    redirect_to :controller => 'home', :action => 'index'
   end
 end

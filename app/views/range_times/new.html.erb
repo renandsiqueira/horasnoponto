@@ -1,7 +1,9 @@
 <h3>clock</h3>
 
-<% if (@range_time != nil) && (@range_time.end_time == nil) %>
-	<%= button_to "End Time", {action: "create",remote: true}, {class: 'btn btn-lg btn-block btn-danger'} %>
-<% else %>
-	<%= button_to "Start Time", {action: "create",remote: true}, {class: 'btn btn-lg btn-block btn-success'} %>
-<% end %>
+<div class="box-container">
+	<% if (@range_time != nil) && (@range_time.end_time == nil) %>
+		<%= button_to "End Time", {action: "create",remote: true}, {class: 'btn btn-lg btn-block btn-danger'} %>
+	<% else %>
+		<%= button_to "Start Time", {action: "create",remote: true}, {class: 'btn btn-lg btn-block btn-success'} %>
+	<% end %>
+</div>

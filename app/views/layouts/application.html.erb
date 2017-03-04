@@ -13,20 +13,22 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Navbar</a>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <%= link_to "Home", { :controller => "range_times", :action => "new" }, :class => "nav-link" %>          
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros</a>
+            <div class="dropdown-menu active" aria-labelledby="dropdown01">
               <%= link_to "Todos", { :controller => "range_times", :action => "index" }, :class => "dropdown-item" %>
               <a class="dropdown-item" href="#">Mês</a>
               <a class="dropdown-item" href="#">Semana</a>
               <a class="dropdown-item" href="#">Hoje</a>
             </div>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Sair", { :controller => "sessions", :action => "destroy" }, :class => "nav-link" %>          
           </li>
         </ul>
       </div>

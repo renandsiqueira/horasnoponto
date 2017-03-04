@@ -1,4 +1,10 @@
 Rails.application.configure do
+
+  # Sass
+  config.sass.preferred_syntax = :sass
+  config.sass.line_comments = false
+  config.sass.cache = false
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
