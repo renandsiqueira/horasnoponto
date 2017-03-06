@@ -6,7 +6,9 @@ class RangeTimesController < ApplicationController
   # GET /range_times
   # GET /range_times.json
   def index
-    @range_times = RangeTime.user(current_user.id)
+    Time.zone = current_user.time_zone
+    @range_times = RangeTime.user(current_user.id).today()
+
     set_sum(@range_times)
   end
 
@@ -28,15 +30,11 @@ class RangeTimesController < ApplicationController
   # POST /range_times.json
   def create
     r = RangeTime.user(current_user.id).without_end.order("created_at").last
- 
+
     if r.nil?
-      r = RangeTime.new
-      r.start_time = DateTime.now
-      r.user = current_user
+      r = RangeTime.new(start_time: DateTime.now, user: current_user)
     else
-      r.end_time = DateTime.now      
-      r.difference_hours = TimeDifference.between(r.start_time, r.end_time).in_hours
-      r.difference_seconds = TimeDifference.between(r.start_time, r.end_time).in_seconds
+      r.difference_time(DateTime.now)
     end
     r.save
 

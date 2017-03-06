@@ -1,5 +1,8 @@
 Rails.application.configure do
 
+  #time_zone
+  #config.time_zone = "America/Sao_Paulo"
+
   # Sass
   config.sass.preferred_syntax = :sass
   config.sass.line_comments = false
