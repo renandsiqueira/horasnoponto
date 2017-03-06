@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box-container">
+  <h1>Mês</h1>
+
+  <table class="table">
+    <thead class="thead-default">
+      <tr>
+        <th>Data</th>
+        <th>Início</th>
+        <th>Fim</th>
+        <th>Horas</th>
+        <th>Segundos</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @range_times.each do |range_time| %>
+        <tr>
+          <td><%= range_time.start_time.strftime("%d/%m/%Y") %></td>
+          <td><%= range_time.start_time.strftime("%k:%M:%S") %></td>
+          <td>
+            <% if range_time.end_time.nil? %>
+              <%= '-' %>
+            <% else %>
+              <%= range_time.end_time.strftime("%k:%M:%S") %>
+            <% end %>           
+          </td>
+          <td>
+            <% if range_time.end_time.nil? %>
+              <%= '-' %>
+            <% else %>
+              <%= range_time.difference_hours.round(2) %></td>
+            <% end %> 
+          <td>
+            <% if range_time.end_time.nil? %>
+              <%= '-' %>
+            <% else %>
+              <%= range_time.difference_seconds.round(2) %>
+            <% end %> 
+          </td>   
+          <td><%= link_to 'Show', range_time %></td>
+          <td><%= link_to 'Edit', edit_range_time_path(range_time) %></td>
+          <td><%= link_to 'Destroy', range_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <tr>
+          <td>
+            <strong>Soma</strong>
+          </td>
+          <td></td>
+          <td></td>
+          <td><%=@sum_hour %></td>   
+          <td><%=@sum_seconds %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

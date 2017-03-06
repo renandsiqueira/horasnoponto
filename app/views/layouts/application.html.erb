@@ -22,9 +22,9 @@
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros</a>
             <div class="dropdown-menu active" aria-labelledby="dropdown01">
               <%= link_to "Todos", { :controller => "range_times", :action => "index" }, :class => "dropdown-item" %>
-              <a class="dropdown-item" href="#">Mês</a>
-              <a class="dropdown-item" href="#">Semana</a>
-              <a class="dropdown-item" href="#">Hoje</a>
+              <%= link_to "Mês", { :controller => "range_times_month", :action => "index" }, :class => "dropdown-item" %>
+              <%= link_to "Semana", { :controller => "range_times_week", :action => "index" }, :class => "dropdown-item" %>
+              <%= link_to "Hoje", { :controller => "range_times_today", :action => "index"}, :class => "dropdown-item" %>
             </div>
           </li>
           <li class="nav-item active">

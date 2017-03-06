@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   
   root "home#index"
 
+  resources :users
+
   resources :range_times
 
-  resources :users
+  resources :range_times_today
+
+  resources :range_times_week
+
+  resources :range_times_month
 
   get 'sessions/create'
 

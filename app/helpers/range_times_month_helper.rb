@@ -1,0 +1,2 @@
+module RangeTimesMonthHelper
+end

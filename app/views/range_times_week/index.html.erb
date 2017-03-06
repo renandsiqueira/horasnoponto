@@ -1,0 +1,164 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box-container">
+  <h1>Semana</h1>
+
+  <table class="table">
+    <thead class="thead-default">
+      <tr>
+        <th>Dia de Semana</th>
+        <th>Horários</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          Domingo
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 0 %> 
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Segunda-Feira
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 1 %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              ~
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Terça-Feira
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 2 %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              ~
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Quarta-Feira
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 3 %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              ~
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Quinta-Feira
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 4 %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              ~
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Sexta-Feira
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 5 %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              ~
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Sábado
+        </td>
+        <td>
+          <% @range_times.each do |range_time| %>
+            <% if range_time.start_time.wday == 6 %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= range_time.start_time.strftime("%k:%M:%S") %>
+              ~
+              <% if range_time.end_time.nil? %>
+                <%= '-' %>
+              <% else %>
+                <%= range_time.end_time.strftime("%k:%M:%S") %>
+              <% end %>   
+            <% end %>
+          <% end %>         
+        </td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
