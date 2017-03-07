@@ -51,8 +51,16 @@
           </td>
           <td></td>
           <td></td>
-          <td><%=@sum_hour %></td>   
-          <td><%=@sum_seconds %></td>
+          <td>
+            <% if @total_hours[0] != nil %>
+              <%= @total_hours[0].total_hour.round(2) %>
+            <% end %>
+          </td>   
+          <td>
+            <% if @total_seconds[0] != nil %>
+              <%= @total_seconds[0].total_seconds.round(2) %>
+            <% end %>
+          </td>
           <td></td>
           <td></td>
           <td></td>

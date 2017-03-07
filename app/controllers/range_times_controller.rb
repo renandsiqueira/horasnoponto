@@ -32,7 +32,7 @@ class RangeTimesController < ApplicationController
     r = RangeTime.user(current_user.id).without_end.today.order("created_at").last
 
     if r.nil?
-      r = RangeTime.new(start_time: DateTime.now, user: current_user)
+      r = RangeTime.new(start_time: DateTime.now, user: current_user, day_range: DateTime.now.beginning_of_day)
     else
       r.difference_time(DateTime.now)
     end

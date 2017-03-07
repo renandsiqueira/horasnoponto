@@ -1,7 +1,7 @@
 class RangeTime < ApplicationRecord
   belongs_to :user
 
-  default_scope { order(start_time: :desc) }
+  default_scope { order(start_time: :asc) }
 
   scope :user, -> (user_id) { where user_id: user_id }
   scope :without_end, -> { where("end_time is null") }

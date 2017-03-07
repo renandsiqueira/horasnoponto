@@ -8,10 +8,9 @@
       <tr>
         <th>Dia de Semana</th>
         <th>Horários</th>
-        <th>Total</th>
+        <th>Total de Horas</th>
       </tr>
     </thead>
-
     <tbody>
       <tr>
         <td>
@@ -28,6 +27,13 @@
               <% end %>   
             <% end %>
           <% end %>         
+        </td>
+        <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 0 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %>     
         </td>
         <td>
         </td>
@@ -51,6 +57,11 @@
           <% end %>         
         </td>
         <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 1 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %> 
         </td>
       </tr>
       <tr>
@@ -72,6 +83,11 @@
           <% end %>         
         </td>
         <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 2 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %> 
         </td>
       </tr>
       <tr>
@@ -93,6 +109,11 @@
           <% end %>         
         </td>
         <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 3 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %> 
         </td>
       </tr>
       <tr>
@@ -114,6 +135,11 @@
           <% end %>         
         </td>
         <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 4 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %> 
         </td>
       </tr>
       <tr>
@@ -135,6 +161,11 @@
           <% end %>         
         </td>
         <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 5 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %> 
         </td>
       </tr>
       <tr>
@@ -156,6 +187,11 @@
           <% end %>         
         </td>
         <td>
+          <% @total_hours.each do |t| %>
+            <% if t.day != nil && t.day.to_date.wday == 6 %> 
+               <%= t.total_hour %>
+            <% end %>
+          <% end %> 
         </td>
       </tr>
     </tbody>
