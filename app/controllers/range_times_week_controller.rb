@@ -18,6 +18,6 @@ class RangeTimesWeekController < ApplicationController
 		end
 
 		def total_seconds_week (user_id)
-		  RangeTime.user(user_id).week.select("day_range as day, sum(difference_seconds) as total_hour").group("day_range")
+		  RangeTime.user(user_id).week.select("day_range as day, sum(difference_seconds) as total_seconds").group("day_range")
 		end
 end

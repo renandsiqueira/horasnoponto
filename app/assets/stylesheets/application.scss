@@ -12,7 +12,25 @@
  *
  */
  @import "bootstrap";
- 
+
 .box-container {
 	margin-top: 100px;
+}
+
+.header-start-time {
+	padding-right: 39px;
+}
+
+.text-start-time {
+	padding-right: 25px;
+}
+
+.box-center {
+	margin: auto;
+    width: 100%;
+    padding: 30px 0px 20px 0px;
+}
+
+.text-end-time {
+	padding-left: 25px;
 }

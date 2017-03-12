@@ -6,6 +6,12 @@ class RangeTimesMonthController < ApplicationController
   # GET /range_times_week.json
 	def index
   	Time.zone = current_user.time_zone
-    @range_times = RangeTime.user(current_user.id).month()
+  
+ 		@total_seconds = total_seconds_month(current_user.id)
 	end
+
+	private
+		def total_seconds_month (user_id)
+		  RangeTime.user(user_id).month.select("day_range as day, sum(difference_seconds) as total_seconds").group("day_range")
+		end
 end

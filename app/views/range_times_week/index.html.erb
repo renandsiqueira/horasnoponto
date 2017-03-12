@@ -7,189 +7,253 @@
     <thead class="thead-default">
       <tr>
         <th>Dia de Semana</th>
-        <th>Horários</th>
-        <th>Total de Horas</th>
+        <th>
+          <div>
+            <span class="text-success header-start-time">Entrada
+            </span>
+            <span class="text-danger" >
+              Saída
+            </span>
+          <div>
+        </th>
+        <th>Tempo Total</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>
-          Domingo
+          <div class="box-center">
+            Domingo
+          </div>
         </td>
         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 0 %> 
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+            <div>
+              <% if range_time.start_time.wday == 0 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
-          <% @total_hours.each do |t| %>
+          <% @total_seconds.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 0 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= RangeTimesHelper.humanize(t.total_seconds) %>
+              </div>
             <% end %>
-          <% end %>     
-        </td>
-        <td>
+          <% end %> 
         </td>
       </tr>
       <tr>
         <td>
-          Segunda-Feira
+          <div class="box-center">
+            Segunda-Feira
+          </div>
         </td>
         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 1 %> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              ~
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+            <div>
+              <% if range_time.start_time.wday == 1 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
-          <% @total_hours.each do |t| %>
+          <% @total_seconds.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 1 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= RangeTimesHelper.humanize(t.total_seconds) %>
+              </div>
             <% end %>
           <% end %> 
         </td>
       </tr>
       <tr>
         <td>
-          Terça-Feira
+          <div class="box-center">
+            Terça-Feira
+          </div>
         </td>
         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 2 %> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              ~
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+           <div>
+              <% if range_time.start_time.wday == 2 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
-          <% @total_hours.each do |t| %>
+          <% @total_seconds.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 2 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= RangeTimesHelper.humanize(t.total_seconds) %>
+              </div>
             <% end %>
           <% end %> 
         </td>
       </tr>
       <tr>
         <td>
-          Quarta-Feira
+          <div class="box-center">
+            Quarta-Feira
+          </div>
         </td>
         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 3 %> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              ~
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+           <div>
+              <% if range_time.start_time.wday == 3 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
-          <% @total_hours.each do |t| %>
+          <% @total_seconds.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 3 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= RangeTimesHelper.humanize(t.total_seconds) %>
+              </div>
             <% end %>
           <% end %> 
         </td>
       </tr>
       <tr>
         <td>
-          Quinta-Feira
+          <div class="box-center">
+            Quinta-Feira
+          </div>
         </td>
         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 4 %> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              ~
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+           <div>
+              <% if range_time.start_time.wday == 4 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
-          <% @total_hours.each do |t| %>
+          <% @total_seconds.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 4 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= RangeTimesHelper.humanize(t.total_seconds) %>
+              </div>
             <% end %>
           <% end %> 
         </td>
       </tr>
       <tr>
         <td>
-          Sexta-Feira
+          <div class="box-center">
+            Sexta-Feira
+          </div>
         </td>
-        <td>
+         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 5 %> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              ~
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+           <div>
+              <% if range_time.start_time.wday == 5 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
           <% @total_hours.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 5 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= t.total_hour %>
+              </div>
             <% end %>
           <% end %> 
         </td>
       </tr>
       <tr>
         <td>
-          Sábado
+          <div class="box-center">
+            Sábado
+          </div>
         </td>
-        <td>
+         <td>
           <% @range_times.each do |range_time| %>
-            <% if range_time.start_time.wday == 6 %> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <%= range_time.start_time.strftime("%k:%M:%S") %>
-              ~
-              <% if range_time.end_time.nil? %>
-                <%= '-' %>
-              <% else %>
-                <%= range_time.end_time.strftime("%k:%M:%S") %>
-              <% end %>   
-            <% end %>
+           <div>
+              <% if range_time.start_time.wday == 6 %>        
+                <span class="text-success text-start-time">
+                  <%= range_time.start_time.strftime("%k:%M:%S") %>
+                </span>
+                <span class="text-danger">
+                  <% if range_time.end_time.nil? %>
+                    <%= '-' %>
+                  <% else %>
+                    <%= range_time.end_time.strftime("%k:%M:%S") %>
+                  <% end %> 
+                </span>  
+              <% end %>
+            </div>
           <% end %>         
         </td>
         <td>
-          <% @total_hours.each do |t| %>
+         <% @total_hours.each do |t| %>
             <% if t.day != nil && t.day.to_date.wday == 6 %> 
-               <%= t.total_hour %>
+              <div class="box-center">
+                <%= t.total_hour %>
+              </div>
             <% end %>
           <% end %> 
         </td>

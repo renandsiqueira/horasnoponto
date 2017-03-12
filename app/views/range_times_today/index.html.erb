@@ -9,8 +9,7 @@
         <th>Data</th>
         <th>Início</th>
         <th>Fim</th>
-        <th>Horas</th>
-        <th>Segundos</th>
+        <th>Tempo</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -31,13 +30,7 @@
             <% if range_time.end_time.nil? %>
               <%= '-' %>
             <% else %>
-              <%= range_time.difference_hours.round(2) %></td>
-            <% end %> 
-          <td>
-            <% if range_time.end_time.nil? %>
-              <%= '-' %>
-            <% else %>
-              <%= range_time.difference_seconds.round(2) %>
+              <%= RangeTimesHelper.humanize(range_time.difference_seconds) %>
             <% end %> 
           </td>   
           <td><%= link_to 'Show', range_time %></td>
@@ -52,13 +45,8 @@
           <td></td>
           <td></td>
           <td>
-            <% if @total_hours[0] != nil %>
-              <%= @total_hours[0].total_hour.round(2) %>
-            <% end %>
-          </td>   
-          <td>
             <% if @total_seconds[0] != nil %>
-              <%= @total_seconds[0].total_seconds.round(2) %>
+              <%= RangeTimesHelper.humanize(@total_seconds[0].total_seconds) %>
             <% end %>
           </td>
           <td></td>
