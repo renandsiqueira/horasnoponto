@@ -1,0 +1,9 @@
+
+<div class="box-container">
+	<%= form_for @current_user, :url => { :action => "update" } do |f| %>
+	  <%= f.label :email %>
+	  <%= f.text_field :email %><br />
+	  <%= f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones) %>
+	  <%= f.submit %>
+	<% end %>
+</div>

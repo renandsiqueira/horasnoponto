@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get 'sessions/create'
 
+  get 'perfil/edit'
+
+  post 'perfil/update'
+
   match '/auth/:provider/callback', :to => 'sessions#create', via: :get
   match '/signout', :to => 'sessions#destroy', :as => :signout, via: :get
  
