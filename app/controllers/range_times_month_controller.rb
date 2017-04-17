@@ -1,6 +1,6 @@
 class RangeTimesMonthController < ApplicationController
 	before_action :auth!, only: [:index, :edit]
-  before_action :current_user, only: [:index]
+    before_action :current_user, only: [:index]
 
   # GET /range_times_week
   # GET /range_times_week.json

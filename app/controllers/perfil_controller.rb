@@ -1,5 +1,6 @@
 class PerfilController < ApplicationController
-	
+	before_action :auth!, only: [:edit, :update]
+
 	# GET /perfil
 	def edit
 		@current_user = current_user
@@ -13,5 +14,7 @@ class PerfilController < ApplicationController
 		u = User.find(current_user.id)
 		u.time_zone = time_zone
 		u.save()
+
+		redirect_to url_for(:controller => :perfil, :action => :edit)
 	end
 end

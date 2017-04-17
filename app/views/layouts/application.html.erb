@@ -28,6 +28,9 @@
             </div>
           </li>
           <li class="nav-item active">
+            <%= link_to "Perfil", { :controller => "perfil", :action => "edit" }, :class => "nav-link" %>          
+          </li>
+          <li class="nav-item active">
             <%= link_to "Sair", { :controller => "sessions", :action => "destroy" }, :class => "nav-link" %>          
           </li>
         </ul>

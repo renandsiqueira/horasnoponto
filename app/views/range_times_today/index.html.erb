@@ -30,7 +30,7 @@
             <% if range_time.end_time.nil? %>
               <%= '-' %>
             <% else %>
-              <%= RangeTimesHelper.humanize(range_time.difference_seconds) %>
+                <%= RangeTimesHelper.humanize(range_time.difference_seconds) %>  
             <% end %> 
           </td>   
           <td><%= link_to 'Show', range_time %></td>
@@ -45,8 +45,9 @@
           <td></td>
           <td></td>
           <td>
-            <% if @total_seconds[0] != nil %>
-              <%= RangeTimesHelper.humanize(@total_seconds[0].total_seconds) %>
+            <% if @total_seconds[0] != nil && 
+                  @total_seconds[0].total_seconds != nil %>
+                <%= RangeTimesHelper.humanize(@total_seconds[0].total_seconds) %>
             <% end %>
           </td>
           <td></td>
